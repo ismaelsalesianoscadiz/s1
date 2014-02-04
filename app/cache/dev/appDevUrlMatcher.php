@@ -134,12 +134,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // _welcome
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', '_welcome');
-            }
-
+        if ($pathinfo === '/index') {
             return array (  '_controller' => 'Acme\\DemoBundle\\Controller\\WelcomeController::indexAction',  '_route' => '_welcome',);
+        }
+
+        // AcmeDemo_ejemplo
+        if ($pathinfo === '/ejemplo') {
+            return array (  '_controller' => 'Acme\\DemoBundle\\Controller\\WelcomeController::ejemploAction',  '_route' => 'AcmeDemo_ejemplo',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

@@ -1,4 +1,7 @@
 _welcome:
-    pattern:  /
+    pattern:  /index
     defaults: { _controller: AcmeDemoBundle:Welcome:index }
-
+    
+AcmeDemo_ejemplo:
+    pattern:  /ejemplo
+    defaults: { _controller: AcmeDemoBundle:Welcome:ejemplo }
